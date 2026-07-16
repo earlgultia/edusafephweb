@@ -187,31 +187,6 @@
 
 </section>
 
-<section class="developer section">
-
-    <div class="container">
-
-        <div class="developer-card reveal">
-            <div class="developer-image">
-                <img src="earl.jpg" alt="Earl O. Gultia">
-            </div>
-
-            <div class="developer-content">
-                <span class="section-label">Developer Profile</span>
-                <button class="developer-name" type="button" data-modal-trigger="developer-modal">
-                    EARL O. GULTIA
-                </button>
-                <p class="developer-intro">App & Web Developer · CEO of ArkBytes Technologies</p>
-                <p>
-                    Passionate about building modern, user-friendly applications and websites with a strong focus on clean design, usability, and reliable performance.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
 <div class="modal" id="developer-modal" role="dialog" aria-modal="true" aria-labelledby="developer-modal-title">
     <div class="modal-content">
         <button class="modal-close" type="button" aria-label="Close profile">×</button>
@@ -286,7 +261,6 @@
 </section>
 
 <script>
-    const developerTrigger = document.querySelector('[data-modal-trigger="developer-modal"]');
     const developerModal = document.getElementById('developer-modal');
     const modalClose = developerModal?.querySelector('.modal-close');
 
@@ -300,7 +274,14 @@
         document.body.style.overflow = '';
     };
 
-    developerTrigger?.addEventListener('click', openDeveloperModal);
+    document.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-modal-trigger="developer-modal"]');
+        if (trigger) {
+            event.preventDefault();
+            openDeveloperModal();
+        }
+    });
+
     modalClose?.addEventListener('click', closeDeveloperModal);
     developerModal?.addEventListener('click', (event) => {
         if (event.target === developerModal) {
