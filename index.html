@@ -187,6 +187,45 @@
 
 </section>
 
+<section class="developer section">
+
+    <div class="container">
+
+        <div class="developer-card reveal">
+            <div class="developer-image">
+                <img src="earl.jpg" alt="Earl O. Gultia">
+            </div>
+
+            <div class="developer-content">
+                <span class="section-label">Developer Profile</span>
+                <button class="developer-name" type="button" data-modal-trigger="developer-modal">
+                    EARL O. GULTIA
+                </button>
+                <p class="developer-intro">App & Web Developer · CEO of ArkBytes Technologies</p>
+                <p>
+                    Passionate about building modern, user-friendly applications and websites with a strong focus on clean design, usability, and reliable performance.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal" id="developer-modal" role="dialog" aria-modal="true" aria-labelledby="developer-modal-title">
+    <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close profile">×</button>
+        <img src="earl.jpg" alt="Earl O. Gultia">
+        <div class="modal-body">
+            <h3 id="developer-modal-title">EARL O. GULTIA</h3>
+            <p class="modal-role">App & Web Developer</p>
+            <p>
+                Hi, I’m Earl Gultia. I’m passionate about building modern, user-friendly applications and websites. I’m also the CEO of ArkBytes Technologies.
+            </p>
+        </div>
+    </div>
+</div>
+
 <section class="about section">
 
     <div class="container">
@@ -245,6 +284,36 @@
     </div>
 
 </section>
+
+<script>
+    const developerTrigger = document.querySelector('[data-modal-trigger="developer-modal"]');
+    const developerModal = document.getElementById('developer-modal');
+    const modalClose = developerModal?.querySelector('.modal-close');
+
+    const openDeveloperModal = () => {
+        developerModal?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeDeveloperModal = () => {
+        developerModal?.classList.remove('open');
+        document.body.style.overflow = '';
+    };
+
+    developerTrigger?.addEventListener('click', openDeveloperModal);
+    modalClose?.addEventListener('click', closeDeveloperModal);
+    developerModal?.addEventListener('click', (event) => {
+        if (event.target === developerModal) {
+            closeDeveloperModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeDeveloperModal();
+        }
+    });
+</script>
 
 <footer>
 
