@@ -517,6 +517,21 @@ footer strong {
     color: var(--text);
 }
 
+.footer-developer {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 4px;
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    font: inherit;
+}
+
+.footer-developer:hover {
+    text-decoration: underline;
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(24px);
